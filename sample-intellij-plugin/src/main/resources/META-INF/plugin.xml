@@ -1,0 +1,32 @@
+<idea-plugin>
+    <id>com.github.alexeybuzdin</id>
+    <name>SamplePlugin</name>
+    <!-- Should be automatically replaced by gradle build -->
+    <version>9.9.9</version>
+    <vendor email="alexey@gdgriga.lv" url="http://gdgriga.lv/">GDG Riga</vendor>
+
+    <description><![CDATA[
+      Enter short description for your plugin here.<br>
+      <em>most HTML tags may be used</em>
+    ]]></description>
+
+    <change-notes><![CDATA[
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>
+    ]]>
+    </change-notes>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="145.0"/>
+
+    <depends>com.intellij.modules.lang</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+
+    </extensions>
+
+    <actions>
+
+    </actions>
+
+</idea-plugin>
