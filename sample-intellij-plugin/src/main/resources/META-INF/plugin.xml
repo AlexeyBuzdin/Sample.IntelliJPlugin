@@ -26,7 +26,10 @@
     </extensions>
 
     <actions>
-
+        <action id="com.github.alexeybuzdin.actions.OpenFuseAction" class="com.github.alexeybuzdin.actions.OpenFuseAction"
+                text="Open Fuse Preview" description="Open Fuse Preview">
+            <add-to-group group-id="ToolsMenu" anchor="first"/>
+        </action>
     </actions>
 
 </idea-plugin>
