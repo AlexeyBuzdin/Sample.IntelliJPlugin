@@ -1,5 +1,6 @@
 package com.github.alexeybuzdin;
 
+import com.github.alexeybuzdin.FuseToolsIcons;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.ui.Messages;
@@ -25,8 +26,9 @@ public class OpenFuseAction extends AnAction {
             if (s.length() > 0) {
                 throw new RuntimeException(s.toString());
             }
+
         } catch (Exception e) {
-            Messages.showDialog(e.getMessage(), "Failed to Open Fuse", new String[]{"OK"}, -1, null);
+            Messages.showDialog(e.getMessage(), "Failed to Open Fuse", new String[]{"OK"}, -1, FuseToolsIcons.FILE_UX_ICO);
         }
 
     }
