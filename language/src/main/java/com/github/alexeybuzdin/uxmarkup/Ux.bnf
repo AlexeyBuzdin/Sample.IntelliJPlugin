@@ -1,0 +1,45 @@
+{
+  parserClass="com.github.alexeybuzdin.uxmarkup.parser.UxParser"
+
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  psiClassPrefix="Ux"
+  psiImplClassSuffix="Impl"
+  psiPackage="com.github.alexeybuzdin.uxmarkup.psi"
+  psiImplPackage="com.github.alexeybuzdin.uxmarkup.psi.impl"
+
+  elementTypeHolderClass="com.github.alexeybuzdin.uxmarkup.psi.UxTypes"
+  elementTypeClass="com.github.alexeybuzdin.uxmarkup.psi.UxElementType"
+  tokenTypeClass="com.github.alexeybuzdin.uxmarkup.psi.UxTokenType"
+
+  psiImplUtilClass="com.github.alexeybuzdin.uxmarkup.psi.impl.UxPsiImplUtil"
+
+  tokens = [
+    ATTRIBUTE_SCHEMA="regexp:\w+"
+  ]
+}
+
+uxFile ::= node?
+
+tag_start ::= '<'
+tag_end   ::= '>'
+slash     ::= '/'
+equals    ::= '='
+colon     ::= ':'
+sign      ::= equals | colon
+
+private comment ::= (BLOCK_COMMENT)
+
+node ::= comment*(node_empty | node_inner | node_text)
+node_empty ::= '<' NODE_NAME (attribute)* '/' '>'
+node_inner ::= start_tag node_body end_tag
+node_text  ::= start_tag NODE_INNER_TEXT end_tag
+
+start_tag  ::=	'<' NODE_NAME (attribute)* '>'
+end_tag    ::=	'<''/' NODE_NAME '>'
+
+node_body ::= node*
+
+attribute ::= (ATTRIBUTE_SCHEMA colon)? ATTRIBUTE_NAME equals STRING
+
+//http://www.jelks.nu/XML/xmlebnf.html
