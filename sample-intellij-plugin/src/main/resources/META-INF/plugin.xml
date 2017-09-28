@@ -23,6 +23,8 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <fileTypeFactory implementation="com.github.alexeybuzdin.FuseToolsTypeFactory"/>
+        <lang.parserDefinition language="Ux" implementationClass="com.github.alexeybuzdin.uxmarkup.UxParserDefinition"/>
+
     </extensions>
 
     <actions>
